@@ -58,8 +58,8 @@ layout: frontpage
     <div class="masonry">
       {% for image in site.static_files %}
         {% if image.path contains 'photos' %}
-          <a href="{{image.path}}" class="masonry__link" target="_blank">
-            <img class="masonry__photo" src="{{image.path}}" />
+          <a href="{{image.path | relative_url }}" class="masonry__link" target="_blank">
+            <img class="masonry__photo" src="{{image.path | relative_url }}" />
           </a>
         {% endif %}
       {% endfor %}
