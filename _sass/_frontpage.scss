@@ -16,6 +16,7 @@
 
   @media #{$ipad} {
     height: 40vw;
+    max-height: 640px;
     background-size: cover;
     background-attachment: fixed;
   }
@@ -34,17 +35,9 @@
   }
 
   &__container {
+    max-width: 1200px;
     padding: 2em 0;
-
-    @media #{$mobile} {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(6, 1fr);
-      grid-gap: 30px;
-      max-width: 1300px;
-      margin: 0 auto;
-      height: 100%;
-    }
+    margin: 0 auto;
 
     @media #{$ipad} {
       padding: 0 4vw;
@@ -53,26 +46,34 @@
 
   &__profile-pic {
     position: relative;
+    z-index: 5;
     width: 90%;
     margin: 0 auto;
-    padding-top: 50%;
     background: url($baseurl + '/assets/profile.jpg') left center / cover no-repeat;
     outline: 2px solid rgba(25, 25, 25, 0.65);
     outline-offset: 10px;
     mix-blend-mode: luminosity;
+    opacity: 0;
+    transform: translateY(30%);
+    transition: all 0.8s ease-in-out;
+    transition-property: opacity, transform;
 
-    @media #{$mobile} {
-      width: 100%;
-      margin: 0;
-      z-index: 2;
-      padding-top: 0;
-      grid-column: 1 / -1;
-      grid-row: 1 / -1;
+    &:after {
+      content: "";
+      display: block;
+      height: 0;
+      padding-top: 66.67%;
     }
 
-    @media #{$ipad} {
-      grid-column: 1 / -5;
-      grid-row: 2 / -1;
+    &.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media #{$mobile} {
+      top: 3vw;
+      margin: 0;
+      width: 75%;
     }
   }
 
@@ -80,16 +81,25 @@
     position: relative;
     z-index: 10;
     text-align: center;
+    opacity: 0;
+    transform: translateY(80%);
+    transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: opacity, transform;
+
+    &.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media #{$mobile} {
+      position: absolute;
+      left: 50%;
+      top: 30%;
       text-align: left;
-      grid-column: 6 / -1;
-      grid-row: 2 / span 3;
     }
 
     @media #{$ipad} {
-      grid-column: 8 / -1;
-      grid-row: 3 / span 3;
+      left: 60%;
     }
   }
 
@@ -112,6 +122,10 @@
 
       @media #{$mobile} {
         font-size: 1.2rem;
+      }
+
+      @media #{$desktop} {
+        font-size: 1.4rem;
       }
     }
   }
@@ -159,12 +173,12 @@
   &--videos {
     &:after {
       background: $zumthor;
-      bottom: -100px;
+      bottom: 0;
       left: 0;
       content: '';
       height: 200px;
       position: absolute;
-      transform-origin: left bottom;
+      transform-origin: right bottom;
       transform: skewY(-4deg);
       width: 100%;
       z-index: -1;
@@ -191,16 +205,25 @@
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-gap: 35px;
+  display: flex;
+
+  @supports(display: grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 35px;
+  }
 }
 
 .card {
+  margin: 12.5px;
   font-family: "Lato", sans-serif;
   background-color: $white;
   box-shadow: 0px 5px 20px 0px rgba($darkGray, 0.2);
   transition: transform 0.2s ease-in-out;
+
+  @supports(display: grid) {
+    margin: 0;
+  }
 
   &:hover {
     transform: scale(1.05);
@@ -270,22 +293,41 @@
 .masonry {
 
   @media #{$mobile} {
-    column-count: 3;
-    column-gap: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    @supports(display: grid) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-gap: 0;
+    }
   }
 
   &__link {
     position: relative;
     display: block;
-    padding: 10px;
     width: 100%;
     box-sizing: border-box;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
+    background-color: $darkGray;
+
+    &:nth-of-type(2n) {
+      background-color: $gray;
+    }
 
     @media #{$mobile} {
+      width: 33.333%;
+
+      @supports(display: grid) {
+        width: 100%;
+        padding: 0;
+      }
+
       &:hover {
-        transform: scale(1.05);
+        .masonry__photo {
+          opacity: 1;
+        }
       }
     }
   }
@@ -294,5 +336,16 @@
     display: block;
     break-inside: avoid;
     width: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 50%;
+    }
   }
 }
