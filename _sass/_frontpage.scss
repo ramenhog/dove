@@ -4,7 +4,7 @@
   padding: 0 5vw;
   background: 
     linear-gradient(rgba($astronaut, 0.8), rgba($astronaut, 0.8)),
-    url(/assets/profile.jpg);
+    url($baseurl + '/assets/profile.jpg');
   background-position: right top;
   background-size: auto 200%;
   background-repeat: no-repeat;
@@ -56,7 +56,7 @@
     width: 90%;
     margin: 0 auto;
     padding-top: 50%;
-    background: url('/assets/profile.jpg') left center / cover no-repeat;
+    background: url($baseurl + '/assets/profile.jpg') left center / cover no-repeat;
     outline: 2px solid rgba(25, 25, 25, 0.65);
     outline-offset: 10px;
     mix-blend-mode: luminosity;
