@@ -1,0 +1,68 @@
+---
+layout: frontpage
+---
+<header class="header">
+  <div class="header__container">
+    <div class="header__profile-pic"></div>
+    <div class="header__content">
+      <h1>Ryan Williams</h1>
+      <div class="header__deets">
+        <ul class="header__deets-list">
+          <li>Killing the radio star since '92</li>
+          <li>Video Production Strategist in the coolest city</li>
+          <li>Riding the smallest motorcycle</li>
+        </ul>
+        <ul class="header__social">
+          <li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="ion-social-linkedin"></a></li>
+          <li><a href="https://twitter.com/{{ site.twitter_username }}"" target="_blank" class="ion-social-twitter"></a></li>
+          <li><a href="mailto:{{site.email}}" target="_blank" class="ion-paper-airplane"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section section--videos">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Featured Videos</h2>
+      <h3 class="section__description">Sharing my favorite stories through&nbsp;film</h3>
+    </div>
+    <div class="gallery">
+      {% for video in site.data.videos %}
+        <a class="card" href="https://www.youtube.com/watch?v={{video.id}}" target="_blank">
+          <img class="card__image" src="http://img.youtube.com/vi/{{video.id}}/hqdefault.jpg" />
+          <div class="card__info">
+            <h1 class="card__title">{{video.title}}</h1>
+            <p class="card__description">
+              {{video.description}}
+            <div class="card__sharing">
+              <div class="card__timestamp">
+                <span class="ion-android-time card__timestamp-icon"></span>
+                {{video.timestamp}}
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </p>
+</section>
+
+<section class="section section--photos">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Featured Photos</h2>
+      <h3 class="section__description">Snapshots of life through&nbsp;my&nbsp;lens</h3>
+    </div>
+    <div class="masonry">
+      {% for image in site.static_files %}
+        {% if image.path contains 'photos' %}
+          <a href="{{image.path}}" class="masonry__link" target="_blank">
+            <img class="masonry__photo" src="{{image.path}}" />
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </p>
+</section>
