@@ -72,6 +72,9 @@ layout: frontpage
 window.onload = function() {
   var pic = document.getElementById('header-pic');
   var content = document.getElementById('header-content');
+  var body = document.getElementsByTagName('body')[0];
+
+  body.classList.add('loaded');
 
   setTimeout(function() {
     pic.classList.add('animate');
