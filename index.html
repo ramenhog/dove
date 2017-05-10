@@ -59,7 +59,7 @@ layout: frontpage
       {% for image in site.static_files %}
         {% if image.path contains 'photos' %}
           <a href="{{image.path | relative_url }}" class="masonry__link" target="_blank">
-            <div class="masonry__photo lazyload" data-bg="{{image.path | relative_url }}"></div>
+            <div class="masonry__photo lazyload" style="background-image: url({{image.path | relative_url }});"></div>
           </a>
         {% endif %}
       {% endfor %}
@@ -79,10 +79,10 @@ window.onload = function() {
   }, 500);
 }
 
-document.addEventListener('lazybeforeunveil', function(e){
+/*document.addEventListener('lazybeforeunveil', function(e){
   var bg = e.target.getAttribute('data-bg');
   if(bg){
       e.target.style.backgroundImage = 'url(' + bg + ')';
   }
-});
+});*/
 </script>
