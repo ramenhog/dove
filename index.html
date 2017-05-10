@@ -32,10 +32,13 @@ layout: frontpage
       {% for video in site.data.videos %}
         <a class="card" href="https://www.youtube.com/watch?v={{video.id}}" target="_blank">
           <img class="card__image" src="http://img.youtube.com/vi/{{video.id}}/hqdefault.jpg" />
-          <div class="card__info">
-            <h1 class="card__title">{{video.title}}</h1>
-            <p class="card__description">
-              {{video.description}}
+          <div class="card__container">
+            <div class="card__info">
+              <h1 class="card__title">{{video.title}}</h1>
+              <p class="card__description">
+                {{video.description}}
+              </p>
+            </div>
             <div class="card__sharing">
               <div class="card__timestamp">
                 <span class="ion-android-time card__timestamp-icon"></span>
