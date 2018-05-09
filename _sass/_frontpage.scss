@@ -13,7 +13,7 @@ body {
   background: 
     linear-gradient(rgba($astronaut, 0.8), rgba($astronaut, 0.8)),
     url($baseurl + '/assets/profile.jpg');
-  background-position: right center;
+  background-position: right bottom;
   background-size: auto 200%;
   background-repeat: no-repeat;
 
@@ -88,13 +88,13 @@ body {
     position: relative;
     z-index: 10;
     text-align: center;
-    opacity: 100;
+    opacity: 0;
     transform: translateY(80%);
 
     &.animate {
       transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
       transition-property: opacity, transform;
-      opacity: 1;
+      opacity: 100;
       transform: translateY(0);
     }
 
