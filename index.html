@@ -68,26 +68,3 @@ layout: frontpage
     </div>
   </p>
 </section>
-
-
-<script>
-window.onload = function() {
-  var pic = document.getElementById('header-pic');
-  var content = document.getElementById('header-content');
-  var body = document.getElementsByTagName('body')[0];
-
-  body.classList.add('loaded');
-
-  setTimeout(function() {
-    pic.classList.add('animate');
-    content.classList.add('animate');
-  }, 500);
-}
-
-/*document.addEventListener('lazybeforeunveil', function(e){
-  var bg = e.target.getAttribute('data-bg');
-  if(bg){
-      e.target.style.backgroundImage = 'url(' + bg + ')';
-  }
-});*/
-</script>

@@ -1,7 +1,7 @@
 .footer {
   font-family: "Lato", sans-serif;
   text-align: center;
-  background: $astronaut;
+  background: $darkGray;
 
   &__social-list {
     padding: 1.3rem 0;
@@ -28,7 +28,7 @@
 
   &__copyright {
     padding: 1.2em 0;
-    background: darken($astronaut, 10%);
+    background: darken($darkGray, 10%);
     font-size: 0.6rem;
     color: darken($white, 20%);
   }

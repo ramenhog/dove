@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Yrsa:300,400,500,600|Lato:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500,700');
 
 html,
 body {
-  font-family: "Yrsa", serif; 
+  font-family: "Lato", serif;
   font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -23,21 +23,17 @@ a {
 h1 {
   font-size: 3rem;
 
-  @media #{$mobile} {
-    font-size: 3.5rem;
-  }
-
   @media #{$desktop} {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   line-height: 1.4;
 }
 
