@@ -5,8 +5,13 @@
   background:
     linear-gradient(rgba($black, 0.8), rgba($black, 0.8)),
     url($baseurl + '/assets/profile.jpg');
+<<<<<<< HEAD
   background-position: center bottom;
   background-size: cover;
+=======
+  background-position: right bottom;
+  background-size: auto 200%;
+>>>>>>> 17aff716d4babca4af5fc486f828ecd20ad8eeda
   background-repeat: no-repeat;
 
   @media #{$mobile} {
@@ -55,33 +60,25 @@
     opacity: 0;
     transform: translateY(30%);
 
-    &:after {
-      content: "";
-      display: block;
-      height: 0;
-      padding-top: 66.67%;
-    }
-
-    &.animate {
-      transition: all 0.6s ease-in;
-      transition-property: opacity, transform;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media #{$mobile} {
-      top: 3vw;
-      margin: 0;
-      width: 75%;
-    }
-  }
-
   &__content {
     position: absolute;
     z-index: 10;
+<<<<<<< HEAD
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+=======
+    text-align: center;
+    opacity: 0;
+    transform: translateY(80%);
+
+    &.animate {
+      transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition-property: opacity, transform;
+      opacity: 100;
+      transform: translateY(0);
+    }
+>>>>>>> 17aff716d4babca4af5fc486f828ecd20ad8eeda
 
     @media #{$mobile} {
       margin-left: 10%;
